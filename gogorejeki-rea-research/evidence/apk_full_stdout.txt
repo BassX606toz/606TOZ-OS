@@ -1,0 +1,552 @@
+evidence_id: ev_c9380d272d72da2e9be861dab6140f8b19b4c6877f84e163f279f90de460bc5c
+evidence_format: 2
+subject:
+  identity:
+    kind: file
+    sha256: 7f816e52c22361c83436775574d3f360db5f80521677a0ff503b12066ef91687
+    selection: null
+    format: apk
+    architecture: null
+  name: gogorejeki.apk
+  local_path: /tmp/opencode/gogorejeki.apk
+provider:
+  id: jadx
+  name: JADX headless
+  version: 0.7.1
+analysis_profile: null
+predicate_type: rea.analysis
+operation: inspect_android_package
+parameters:
+  path: gogorejeki.apk
+raw_result:
+  server:
+    name: rea-jadx-bridge
+    version: "11"
+  bridge_sha256: 08de17c12c68adf077aaccba84c6d53b6c9ac86ff2d2e581e35b9b03618003f2
+  jar_sha256: 6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75
+  loaded:
+    state: LOADED
+    apk_path: /tmp/rea-android-g2V3jz/target.apk
+    class_count: 1528
+    resource_count: 1697
+    threads: 1
+    resources: full
+  calls[4]:
+    - operation: rea_jvm_status
+      input:
+      response:
+        content[1]{type,text}:
+          text,"{\"metadata_scope\":\"parsed_members\",\"max_heap_bytes\":4194304000,\"java_version\":\"25.0.5.0.2\",\"available_processors\":4,\"engine_reported_version\":\"0.7.1\"}"
+        isError: false
+    - operation: load_apk
+      input:
+        path: /tmp/rea-android-g2V3jz/target.apk
+        threads: 1
+        resources: full
+      response:
+        content[1]{type,text}:
+          text,"{\"state\":\"LOADED\",\"apk_path\":\"/tmp/rea-android-g2V3jz/target.apk\",\"class_count\":1528,\"raw_class_count\":1528,\"resource_count\":1697,\"load_duration_ms\":1790,\"decompile_timeout_ms\":90000,\"threads\":1,\"code_cache_size\":64,\"resources\":\"full\"}"
+        isError: false
+    - operation: get_app_info
+      input:
+      response:
+        content[1]{type,text}:
+          text,"{\"package\":\"com.gogo.rejeki.games\",\"version_name\":\"1.0.6\",\"version_code\":\"106\",\"min_sdk\":\"21\",\"target_sdk\":\"35\",\"permissions\":[\"android.permission.INTERNET\",\"android.permission.ACCESS_NETWORK_STATE\",\"android.permission.VIBRATE\",\"android.permission.WAKE_LOCK\",\"android.permission.POST_NOTIFICATIONS\",\"com.google.android.providers.gsf.permission.READ_GSERVICES\",\"com.google.android.c2dm.permission.RECEIVE\",\"com.google.android.gms.permission.AD_ID\",\"com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE\"]}"
+        isError: false
+    - operation: get_android_manifest
+      input:
+      response:
+        content[1]{type,text}:
+          text,"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:versionCode=\"106\"\n    android:versionName=\"1.0.6\"\n    android:installLocation=\"auto\"\n    android:compileSdkVersion=\"35\"\n    android:compileSdkVersionCodename=\"15\"\n    package=\"com.gogo.rejeki.games\"\n    platformBuildVersionCode=\"35\"\n    platformBuildVersionName=\"15\">\n    <uses-sdk\n        android:minSdkVersion=\"21\"\n        android:targetSdkVersion=\"35\"/>\n    <uses-feature android:glEsVersion=\"0x20000\"/>\n    <uses-permission android:name=\"android.permission.INTERNET\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n    <uses-permission android:name=\"android.permission.VIBRATE\"/>\n    <uses-permission android:name=\"android.permission.WAKE_LOCK\"/>\n    <uses-permission android:name=\"android.permission.POST_NOTIFICATIONS\"/>\n    <uses-permission android:name=\"com.google.android.providers.gsf.permission.READ_GSERVICES\"/>\n    <queries>\n        <package android:name=\"com.facebook.katana\"/>\n        <package android:name=\"com.whatsapp\"/>\n        <package android:name=\"org.telegram.messenger\"/>\n    </queries>\n    <uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\"/>\n    <uses-permission android:name=\"com.google.android.gms.permission.AD_ID\"/>\n    <uses-permission android:name=\"com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE\"/>\n    <application\n        android:label=\"@string/app_name\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:allowBackup=\"true\"\n        android:extractNativeLibs=\"true\"\n        android:usesCleartextTraffic=\"true\"\n        android:networkSecurityConfig=\"@xml/network_security_config\"\n        android:appComponentFactory=\"androidx.core.app.CoreComponentFactory\"\n        android:requestLegacyExternalStorage=\"true\">\n        <meta-data\n            android:name=\"android.app.lib_name\"\n            android:value=\"cocos2djs\"/>\n        <activity\n            android:theme=\"@style/SplashStyle\"\n            android:label=\"@string/app_name\"\n            android:name=\"org.cocos2dx.javascript.AppActivity\"\n            android:exported=\"true\"\n            android:taskAffinity=\"\"\n            android:launchMode=\"singleTask\"\n            android:screenOrientation=\"sensorPortrait\"\n            android:configChanges=\"screenSize|screenLayout|orientation|keyboardHidden\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"@string/deep_link_scheme\"\n                    android:host=\"@string/deep_link_host\"/>\n            </intent-filter>\n        </activity>\n        <service\n            android:name=\"org.cocos2dx.javascript.MyFirebaseMessagingService\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_icon\"\n            android:resource=\"@drawable/ic_stat_ic_notification\"/>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_channel_id\"\n            android:value=\"@string/default_notification_channel_id\"/>\n        <provider\n            android:name=\"org.cocos2dx.javascript.myFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.gogo.rejeki.games.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/img_provider_paths\"/>\n        </provider>\n        <receiver\n            android:name=\"com.google.firebase.iid.FirebaseInstanceIdReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n        </receiver>\n        <service\n            android:name=\"com.google.firebase.messaging.FirebaseMessagingService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <intent-filter android:priority=\"-500\">\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <service\n            android:name=\"com.google.firebase.components.ComponentDiscoveryService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n        </service>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.google.android.gms.common.api.GoogleApiActivity\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.backends.TransportBackendDiscovery\"\n            android:exported=\"false\">\n            <meta-data\n                android:name=\"backend:com.google.android.datatransport.cct.CctBackendFactory\"\n                android:value=\"cct\"/>\n        </service>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver\"\n            android:exported=\"false\"/>\n        <provider\n            android:name=\"com.google.firebase.provider.FirebaseInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.gogo.rejeki.games.firebaseinitprovider\"\n            android:initOrder=\"100\"\n            android:directBootAware=\"true\"/>\n        <receiver\n            android:name=\"com.google.android.gms.measurement.AppMeasurementReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementService\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementJobService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <meta-data\n            android:name=\"com.google.android.gms.version\"\n            android:value=\"@integer/google_play_services_version\"/>\n    </application>\n</manifest>"
+        isError: false
+normalized_result:
+  engine:
+    name: jadx-headless-mcp
+    version: 0.7.1
+    artifact_sha256: 6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75
+    source_revision: 5844800a486d2248fa949b74c9896285f5b54de2
+    worker_count: 1
+    heap_limit_mib: 4000
+  package_name: com.gogo.rejeki.games
+  version_name: 1.0.6
+  version_code: "106"
+  min_sdk: "21"
+  target_sdk: "35"
+  permissions[9]: android.permission.INTERNET,android.permission.ACCESS_NETWORK_STATE,android.permission.VIBRATE,android.permission.WAKE_LOCK,android.permission.POST_NOTIFICATIONS,com.google.android.providers.gsf.permission.READ_GSERVICES,com.google.android.c2dm.permission.RECEIVE,com.google.android.gms.permission.AD_ID,com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+  manifest:
+    status: complete
+    text: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:versionCode=\"106\"\n    android:versionName=\"1.0.6\"\n    android:installLocation=\"auto\"\n    android:compileSdkVersion=\"35\"\n    android:compileSdkVersionCodename=\"15\"\n    package=\"com.gogo.rejeki.games\"\n    platformBuildVersionCode=\"35\"\n    platformBuildVersionName=\"15\">\n    <uses-sdk\n        android:minSdkVersion=\"21\"\n        android:targetSdkVersion=\"35\"/>\n    <uses-feature android:glEsVersion=\"0x20000\"/>\n    <uses-permission android:name=\"android.permission.INTERNET\"/>\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n    <uses-permission android:name=\"android.permission.VIBRATE\"/>\n    <uses-permission android:name=\"android.permission.WAKE_LOCK\"/>\n    <uses-permission android:name=\"android.permission.POST_NOTIFICATIONS\"/>\n    <uses-permission android:name=\"com.google.android.providers.gsf.permission.READ_GSERVICES\"/>\n    <queries>\n        <package android:name=\"com.facebook.katana\"/>\n        <package android:name=\"com.whatsapp\"/>\n        <package android:name=\"org.telegram.messenger\"/>\n    </queries>\n    <uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\"/>\n    <uses-permission android:name=\"com.google.android.gms.permission.AD_ID\"/>\n    <uses-permission android:name=\"com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE\"/>\n    <application\n        android:label=\"@string/app_name\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:allowBackup=\"true\"\n        android:extractNativeLibs=\"true\"\n        android:usesCleartextTraffic=\"true\"\n        android:networkSecurityConfig=\"@xml/network_security_config\"\n        android:appComponentFactory=\"androidx.core.app.CoreComponentFactory\"\n        android:requestLegacyExternalStorage=\"true\">\n        <meta-data\n            android:name=\"android.app.lib_name\"\n            android:value=\"cocos2djs\"/>\n        <activity\n            android:theme=\"@style/SplashStyle\"\n            android:label=\"@string/app_name\"\n            android:name=\"org.cocos2dx.javascript.AppActivity\"\n            android:exported=\"true\"\n            android:taskAffinity=\"\"\n            android:launchMode=\"singleTask\"\n            android:screenOrientation=\"sensorPortrait\"\n            android:configChanges=\"screenSize|screenLayout|orientation|keyboardHidden\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\"/>\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\n            </intent-filter>\n            <intent-filter>\n                <action android:name=\"android.intent.action.VIEW\"/>\n                <category android:name=\"android.intent.category.DEFAULT\"/>\n                <category android:name=\"android.intent.category.BROWSABLE\"/>\n                <data\n                    android:scheme=\"@string/deep_link_scheme\"\n                    android:host=\"@string/deep_link_host\"/>\n            </intent-filter>\n        </activity>\n        <service\n            android:name=\"org.cocos2dx.javascript.MyFirebaseMessagingService\"\n            android:exported=\"false\">\n            <intent-filter>\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_icon\"\n            android:resource=\"@drawable/ic_stat_ic_notification\"/>\n        <meta-data\n            android:name=\"com.google.firebase.messaging.default_notification_channel_id\"\n            android:value=\"@string/default_notification_channel_id\"/>\n        <provider\n            android:name=\"org.cocos2dx.javascript.myFileProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.gogo.rejeki.games.fileprovider\"\n            android:grantUriPermissions=\"true\">\n            <meta-data\n                android:name=\"android.support.FILE_PROVIDER_PATHS\"\n                android:resource=\"@xml/img_provider_paths\"/>\n        </provider>\n        <receiver\n            android:name=\"com.google.firebase.iid.FirebaseInstanceIdReceiver\"\n            android:permission=\"com.google.android.c2dm.permission.SEND\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"com.google.android.c2dm.intent.RECEIVE\"/>\n            </intent-filter>\n        </receiver>\n        <service\n            android:name=\"com.google.firebase.messaging.FirebaseMessagingService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <intent-filter android:priority=\"-500\">\n                <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n            </intent-filter>\n        </service>\n        <service\n            android:name=\"com.google.firebase.components.ComponentDiscoveryService\"\n            android:exported=\"false\"\n            android:directBootAware=\"true\">\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n            <meta-data\n                android:name=\"com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar\"\n                android:value=\"com.google.firebase.components.ComponentRegistrar\"/>\n        </service>\n        <activity\n            android:theme=\"@android:style/Theme.Translucent.NoTitleBar\"\n            android:name=\"com.google.android.gms.common.api.GoogleApiActivity\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.backends.TransportBackendDiscovery\"\n            android:exported=\"false\">\n            <meta-data\n                android:name=\"backend:com.google.android.datatransport.cct.CctBackendFactory\"\n                android:value=\"cct\"/>\n        </service>\n        <service\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:exported=\"false\"/>\n        <receiver\n            android:name=\"com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver\"\n            android:exported=\"false\"/>\n        <provider\n            android:name=\"com.google.firebase.provider.FirebaseInitProvider\"\n            android:exported=\"false\"\n            android:authorities=\"com.gogo.rejeki.games.firebaseinitprovider\"\n            android:initOrder=\"100\"\n            android:directBootAware=\"true\"/>\n        <receiver\n            android:name=\"com.google.android.gms.measurement.AppMeasurementReceiver\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementService\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <service\n            android:name=\"com.google.android.gms.measurement.AppMeasurementJobService\"\n            android:permission=\"android.permission.BIND_JOB_SERVICE\"\n            android:enabled=\"true\"\n            android:exported=\"false\"/>\n        <meta-data\n            android:name=\"com.google.android.gms.version\"\n            android:value=\"@integer/google_play_services_version\"/>\n    </application>\n</manifest>"
+    reported_total_bytes: null
+  components:
+    status: complete
+    items[14]:
+      - kind: activity
+        declared_name: org.cocos2dx.javascript.AppActivity
+        name: org.cocos2dx.javascript.AppActivity
+        exported: true
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 2
+        actions[2]: android.intent.action.MAIN,android.intent.action.VIEW
+        categories[3]: android.intent.category.LAUNCHER,android.intent.category.DEFAULT,android.intent.category.BROWSABLE
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 0
+        location:
+          line: 41
+          column: 9
+          offset: 1966
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters[2]:
+          - source_index: 0
+            location:
+              line: 50
+              column: 13
+              offset: 2402
+            priority: null
+            actions[1]: android.intent.action.MAIN
+            categories[1]: android.intent.category.LAUNCHER
+            data: []
+            coverage: complete
+          - source_index: 1
+            location:
+              line: 54
+              column: 13
+              offset: 2603
+            priority: null
+            actions[1]: android.intent.action.VIEW
+            categories[2]: android.intent.category.DEFAULT,android.intent.category.BROWSABLE
+            data[1]:
+              - location:
+                  line: 58
+                  column: 17
+                  offset: 2855
+                scheme: @string/deep_link_scheme
+                host: @string/deep_link_host
+                port: null
+                path: null
+                path_prefix: null
+                path_pattern: null
+                path_advanced_pattern: null
+                path_suffix: null
+                mime_type: null
+            coverage: complete
+        meta_data: []
+      - kind: service
+        declared_name: org.cocos2dx.javascript.MyFirebaseMessagingService
+        name: org.cocos2dx.javascript.MyFirebaseMessagingService
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: com.google.firebase.MESSAGING_EVENT
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 1
+        location:
+          line: 63
+          column: 9
+          offset: 3040
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters[1]:
+          - source_index: 0
+            location:
+              line: 66
+              column: 13
+              offset: 3177
+            priority: null
+            actions[1]: com.google.firebase.MESSAGING_EVENT
+            categories: []
+            data: []
+            coverage: complete
+        meta_data: []
+      - kind: provider
+        declared_name: org.cocos2dx.javascript.myFileProvider
+        name: org.cocos2dx.javascript.myFileProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.gogo.rejeki.games.fileprovider
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 2
+        location:
+          line: 76
+          column: 9
+          offset: 3673
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: true
+        grant_uri_permissions_declaration: "true"
+        intent_filters: []
+        meta_data[1]:
+          - name: android.support.FILE_PROVIDER_PATHS
+            location:
+              line: 81
+              column: 13
+              offset: 3915
+      - kind: receiver
+        declared_name: com.google.firebase.iid.FirebaseInstanceIdReceiver
+        name: com.google.firebase.iid.FirebaseInstanceIdReceiver
+        exported: true
+        exported_default: true
+        permission: com.google.android.c2dm.permission.SEND
+        permission_source: component
+        intent_filter_count: 1
+        actions[1]: com.google.android.c2dm.intent.RECEIVE
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 3
+        location:
+          line: 85
+          column: 9
+          offset: 4082
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters[1]:
+          - source_index: 0
+            location:
+              line: 89
+              column: 13
+              offset: 4292
+            priority: null
+            actions[1]: com.google.android.c2dm.intent.RECEIVE
+            categories: []
+            data: []
+            coverage: complete
+        meta_data: []
+      - kind: service
+        declared_name: com.google.firebase.messaging.FirebaseMessagingService
+        name: com.google.firebase.messaging.FirebaseMessagingService
+        exported: false
+        exported_default: true
+        permission: null
+        permission_source: none
+        intent_filter_count: 1
+        actions[1]: com.google.firebase.MESSAGING_EVENT
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 4
+        location:
+          line: 93
+          column: 9
+          offset: 4445
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters[1]:
+          - source_index: 0
+            location:
+              line: 97
+              column: 13
+              offset: 4629
+            priority: "-500"
+            actions[1]: com.google.firebase.MESSAGING_EVENT
+            categories: []
+            data: []
+            coverage: complete
+        meta_data: []
+      - kind: service
+        declared_name: com.google.firebase.components.ComponentDiscoveryService
+        name: com.google.firebase.components.ComponentDiscoveryService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 5
+        location:
+          line: 101
+          column: 9
+          offset: 4802
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data[4]:
+          - name: "com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+            location:
+              line: 105
+              column: 13
+              offset: 4988
+          - name: "com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+            location:
+              line: 108
+              column: 13
+              offset: 5214
+          - name: "com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+            location:
+              line: 111
+              column: 13
+              offset: 5436
+          - name: "com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+            location:
+              line: 114
+              column: 13
+              offset: 5682
+      - kind: activity
+        declared_name: com.google.android.gms.common.api.GoogleApiActivity
+        name: com.google.android.gms.common.api.GoogleApiActivity
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 6
+        location:
+          line: 118
+          column: 9
+          offset: 5931
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data: []
+      - kind: service
+        declared_name: com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+        name: com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 7
+        location:
+          line: 122
+          column: 9
+          offset: 6139
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data[1]:
+          - name: "backend:com.google.android.datatransport.cct.CctBackendFactory"
+            location:
+              line: 125
+              column: 13
+              offset: 6301
+      - kind: service
+        declared_name: com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+        name: com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+        exported: false
+        exported_default: false
+        permission: android.permission.BIND_JOB_SERVICE
+        permission_source: component
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 8
+        location:
+          line: 129
+          column: 9
+          offset: 6471
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data: []
+      - kind: receiver
+        declared_name: com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+        name: com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 9
+        location:
+          line: 133
+          column: 9
+          offset: 6713
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data: []
+      - kind: provider
+        declared_name: com.google.firebase.provider.FirebaseInitProvider
+        name: com.google.firebase.provider.FirebaseInitProvider
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities[1]: com.gogo.rejeki.games.firebaseinitprovider
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 10
+        location:
+          line: 136
+          column: 9
+          offset: 6902
+        enabled: null
+        enabled_declaration: null
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data: []
+      - kind: receiver
+        declared_name: com.google.android.gms.measurement.AppMeasurementReceiver
+        name: com.google.android.gms.measurement.AppMeasurementReceiver
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 11
+        location:
+          line: 142
+          column: 9
+          offset: 7192
+        enabled: true
+        enabled_declaration: "true"
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data: []
+      - kind: service
+        declared_name: com.google.android.gms.measurement.AppMeasurementService
+        name: com.google.android.gms.measurement.AppMeasurementService
+        exported: false
+        exported_default: false
+        permission: null
+        permission_source: none
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 12
+        location:
+          line: 146
+          column: 9
+          offset: 7369
+        enabled: true
+        enabled_declaration: "true"
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data: []
+      - kind: service
+        declared_name: com.google.android.gms.measurement.AppMeasurementJobService
+        name: com.google.android.gms.measurement.AppMeasurementJobService
+        exported: false
+        exported_default: false
+        permission: android.permission.BIND_JOB_SERVICE
+        permission_source: component
+        intent_filter_count: 0
+        actions: []
+        categories: []
+        foreground_service_type: null
+        authorities: null
+        target_activity: null
+        declaration_coverage: complete
+        declaration_index: 13
+        location:
+          line: 150
+          column: 9
+          offset: 7544
+        enabled: true
+        enabled_declaration: "true"
+        process: null
+        grant_uri_permissions: null
+        grant_uri_permissions_declaration: null
+        intent_filters: []
+        meta_data: []
+    limitations: []
+  class_count: 1528
+  resource_count: 1697
+  signature_verification: not_performed
+confidence: observed
+authority: shipped-artifact
+environment: null
+limitations[5]: Static decompiler observations do not establish runtime behavior; the APK is never executed.,"Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.","Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.","Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.","Manifest summaries are parsed once by REA's bridge from the exact root AndroidManifest.xml resource, using namespace-aware XML attributes; decoded XML is retained. These summaries do not verify APK signatures, split APKs or Android runtime capture."
+relationship_coverage: null
+locations[1]{kind,path}:
+  artifact-path,AndroidManifest.xml
+evidence_links: []
+caller_input_path: gogorejeki.apk
